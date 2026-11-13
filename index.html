@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#08101f" />
+    <meta name="description" content="Rahul Panchal — Senior iOS Engineer with 10+ years of experience in Swift, SwiftUI, UIKit, mobile architecture, and SDK development." />
+    <title>Rahul Panchal — Senior iOS Engineer</title>
+    <style>
+      :root { color-scheme: dark; --ink: #f8fafc; --muted: #94a3b8; --line: rgba(148,163,184,.18); --panel: rgba(15,23,42,.72); --sky: #38bdf8; --mint: #6ee7b7; }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; background: #08101f; color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.55; }
+      a { color: inherit; text-decoration: none; }
+      .page { min-height: 100vh; overflow: hidden; position: relative; background: radial-gradient(circle at 15% 15%, rgba(72,169,255,.18), transparent 30%), radial-gradient(circle at 85% 35%, rgba(167,139,250,.13), transparent 32%), #08101f; }
+      .container { width: min(1152px, calc(100% - 40px)); margin: auto; position: relative; }
+      .topbar { height: 72px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+      .brand { font-weight: 900; letter-spacing: -.04em; }
+      .brand span { color: var(--mint); }
+      nav { display: flex; gap: 24px; color: var(--muted); font-size: .86rem; font-weight: 700; }
+      nav a:hover { color: white; }
+      .hero { min-height: 82vh; display: grid; grid-template-columns: 1.2fr .8fr; align-items: center; gap: 64px; padding: 80px 0; }
+      .eyebrow, .kicker { color: var(--mint); font-size: .72rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+      .eyebrow { display: inline-flex; align-items: center; gap: 9px; padding: 6px 12px; border: 1px solid rgba(110,231,183,.3); border-radius: 999px; background: rgba(110,231,183,.08); }
+      .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 16px var(--mint); }
+      h1, h2, h3, p { margin-top: 0; }
+      h1 { max-width: 760px; margin: 24px 0; font-size: clamp(3.8rem, 8vw, 7.6rem); line-height: .91; letter-spacing: -.075em; }
+      h1 span { background: linear-gradient(90deg, var(--sky), var(--mint)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+      .lead { max-width: 660px; color: var(--muted); font-size: 1.08rem; }
+      .lead strong { color: white; }
+      .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+      .button { display: inline-flex; align-items: center; gap: 9px; padding: 12px 17px; border-radius: 12px; font-weight: 800; transition: transform .2s, border-color .2s, background .2s; }
+      .button:hover { transform: translateY(-2px); }
+      .button.primary { color: #07111f; background: linear-gradient(100deg, #a7f3d0, #99f6e4); }
+      .button.secondary { border: 1px solid var(--line); background: rgba(15,23,42,.72); }
+      .phone-wrap { position: relative; width: min(310px, 100%); margin: auto; }
+      .orbit { position: absolute; inset: -40px; border: 1px dashed rgba(56,189,248,.25); border-radius: 50%; animation: spin 24s linear infinite; }
+      .orbit i { position: absolute; width: 12px; height: 12px; border-radius: 50%; background: var(--sky); box-shadow: 0 0 24px var(--sky); top: 18%; left: 4%; }
+      .orbit i:last-child { top: auto; left: auto; right: 7%; bottom: 14%; background: var(--mint); box-shadow: 0 0 24px var(--mint); }
+      .phone { position: relative; padding: 12px; border: 1px solid rgba(255,255,255,.2); border-radius: 42px; background: linear-gradient(135deg, #334155, #020617); box-shadow: 0 35px 90px rgba(0,0,0,.55); animation: float 5s ease-in-out infinite; }
+      .notch { position: absolute; top: 20px; left: 50%; width: 96px; height: 24px; border-radius: 999px; background: #020617; transform: translateX(-50%); z-index: 1; }
+      .screen { min-height: 520px; padding: 96px 24px 24px; border-radius: 32px; text-align: center; background: linear-gradient(135deg, #182949, #101a31); }
+      .apple { display: grid; place-items: center; width: 80px; height: 80px; margin: auto; border-radius: 24px; font-size: 2.5rem; background: linear-gradient(135deg, var(--sky), #a78bfa); box-shadow: 0 16px 30px rgba(0,0,0,.22); }
+      .screen h2 { margin: 22px 0 4px; font-size: 1.45rem; }
+      .screen p, .stat span { color: var(--muted); font-size: .9rem; }
+      .chips, .tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
+      .chips { margin-top: 22px; }
+      .chip { flex: 1; padding: 8px 4px; border-radius: 10px; background: rgba(56,189,248,.1); color: #bae6fd; font-size: .68rem; font-weight: 800; }
+      .status { display: flex; align-items: center; gap: 8px; margin-top: 12px; padding: 10px; border-radius: 10px; background: rgba(110,231,183,.1); color: var(--mint); font-size: .68rem; }
+      .status .dot { width: 7px; height: 7px; animation: pulse 1.8s infinite; }
+      .stat { margin-top: 22px; padding: 18px; border: 1px solid var(--line); border-radius: 16px; text-align: left; background: rgba(255,255,255,.04); }
+      .stat strong { display: block; color: var(--mint); font-size: 2.3rem; line-height: 1; }
+      section { padding: 88px 0; }
+      .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 30px; }
+      h2 { margin: 8px 0 0; font-size: clamp(2.4rem, 5vw, 4rem); letter-spacing: -.06em; line-height: 1; }
+      .section-icon { color: var(--sky); font-size: 2.25rem; }
+      .grid { display: grid; gap: 14px; }
+      .skills { grid-template-columns: repeat(5, 1fr); }
+      .card { border: 1px solid var(--line); border-radius: 17px; background: var(--panel); transition: transform .2s, border-color .2s; }
+      .card:hover { transform: translateY(-4px); border-color: rgba(110,231,183,.5); }
+      .skill { padding: 19px 12px; text-align: center; }
+      .skill b { display: block; font-size: 1.55rem; }
+      .skill strong { display: block; margin-top: 7px; font-size: .92rem; }
+      .architecture { display: grid; grid-template-columns: .8fr 1.2fr; gap: 20px; }
+      .code { padding: 28px; overflow: auto; color: #cbd5e1; font: .87rem/2 ui-monospace, SFMono-Regular, Menlo, monospace; }
+      .code .purple { color: #c4b5fd; } .code .blue { color: #7dd3fc; } .code .green { color: #86efac; }
+      .layers { display: grid; gap: 9px; }
+      .layer { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 20px; }
+      .layer:nth-child(2) { margin-left: 20px; } .layer:nth-child(3) { margin-left: 40px; } .layer:nth-child(4) { margin-left: 60px; }
+      .layer span, .muted { color: var(--muted); font-size: .88rem; }
+      .timeline { display: grid; gap: 14px; }
+      .job { display: grid; grid-template-columns: 190px 1fr; gap: 20px; padding: 28px; }
+      .job time, .project-type { color: var(--mint); font-size: .73rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+      .job h3, .project h3 { margin: 0; font-size: 1.3rem; }
+      .company { margin-top: 3px; color: var(--sky); font-weight: 800; }
+      .job p, .project p { margin: 10px 0 0; color: var(--muted); }
+      .credentials { grid-template-columns: repeat(2, 1fr); }
+      .credential { min-height: 240px; padding: 28px; }
+      .credential h3 { margin-top: 12px; font-size: 1.5rem; }
+      .tag-row { margin-top: 20px; } .tag { padding: 5px 9px; border-radius: 8px; color: #bae6fd; background: rgba(56,189,248,.1); font-size: .72rem; }
+      .contact { border-top: 1px solid var(--line); text-align: center; padding-bottom: 112px; }
+      .contact .section-icon { color: var(--mint); }
+      .contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 22px; margin-top: 26px; color: var(--muted); }
+      .contact-links a:hover { color: white; }
+      footer { padding: 22px 0; border-top: 1px solid var(--line); color: #64748b; font-size: .8rem; text-align: center; }
+      @keyframes float { 0%,100% { transform: rotate(4deg) translateY(0); } 50% { transform: rotate(2deg) translateY(-14px); } }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      @keyframes pulse { 50% { opacity: .4; } }
+      @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; scroll-behavior: auto !important; } }
+      @media (max-width: 800px) { .hero, .architecture { grid-template-columns: 1fr; } .hero { padding-top: 58px; text-align: center; } .lead { margin: auto; } .actions { justify-content: center; } .skills { grid-template-columns: repeat(2, 1fr); } .credentials { grid-template-columns: 1fr; } .section-head { align-items: start; } .job { grid-template-columns: 1fr; gap: 8px; } nav { display: none; } }
+      @media (max-width: 500px) { .container { width: min(100% - 28px, 1152px); } section { padding: 64px 0; } h1 { font-size: 4rem; } .layer, .layer:nth-child(n) { margin-left: 0; align-items: flex-start; flex-direction: column; gap: 4px; } }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="container topbar">
+        <a class="brand" href="#top">rahul<span>/</span>panchal</a>
+        <nav aria-label="Primary navigation"><a href="#work">Work</a><a href="#experience">Experience</a><a href="#contact">Contact</a></nav>
+      </header>
+
+      <main id="top" class="container">
+        <section class="hero">
+          <div>
+            <div class="eyebrow"><span class="dot"></span> Senior iOS Engineer</div>
+            <h1>Building apps<br /><span>people love.</span></h1>
+            <p class="lead"><strong>Rahul Panchal</strong> is a mobile engineer with 10+ years creating production iPhone and iPad experiences, reusable SDKs, and scalable app architectures.</p>
+            <div class="actions"><a class="button primary" href="mailto:krishnapanchal173@gmail.com">✉ Email Rahul</a><a class="button secondary" href="https://www.linkedin.com/in/rahul-panchal-608884a3" target="_blank" rel="noreferrer">in LinkedIn</a></div>
+          </div>
+          <div class="phone-wrap" aria-label="Mobile engineering illustration">
+            <div class="orbit"><i></i><i></i></div>
+            <div class="phone"><div class="notch"></div><div class="screen"><div class="apple"></div><h2>Native by design.</h2><p>Swift engineering with thoughtful architecture and polished interactions.</p><div class="chips"><span class="chip">SwiftUI</span><span class="chip">UIKit</span><span class="chip">SDKs</span></div><div class="status"><span class="dot"></span> Production systems · online</div><div class="stat"><strong>60–70%</strong><span>faster landing-screen load through caching and on-demand fetching</span></div></div></div>
+          </div>
+        </section>
+
+        <section id="work">
+          <div class="section-head"><div><div class="kicker">Technical toolkit</div><h2>Native depth.<br />Product breadth.</h2></div><div class="section-icon">&lt;/&gt;</div></div>
+          <p class="lead" style="margin: 24px 0 30px;">Expertise in mobile application development across native, cross-platform, and modern web technologies.</p>
+          <div class="grid skills">
+            <div class="card skill"><b>🐦</b><strong>Swift</strong></div><div class="card skill"><b>📱</b><strong>SwiftUI</strong></div><div class="card skill"><b>◐</b><strong>Objective-C</strong></div><div class="card skill"><b>🤖</b><strong>Kotlin</strong></div><div class="card skill"><b>🧩</b><strong>Jetpack Compose</strong></div><div class="card skill"><b>🔗</b><strong>Kotlin Multiplatform</strong></div><div class="card skill"><b>◈</b><strong>JavaScript</strong></div><div class="card skill"><b>TS</b><strong>TypeScript</strong></div><div class="card skill"><b>⬢</b><strong>Node.js</strong></div><div class="card skill"><b>⚡</b><strong>Express.js</strong></div><div class="card skill"><b>🐘</b><strong>Postgres</strong></div>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-head"><div><div class="kicker">Engineering approach</div><h2>Architecture<br />that scales</h2><p class="muted">Clean boundaries, predictable state, safe concurrency, and reusable packages designed for long-lived products.</p></div></div>
+          <div class="architecture"><div class="card code"><span class="purple">actor</span> <span class="blue">ProductEngine</span> {<br />&nbsp;&nbsp;<span class="purple">let</span> stack = [<span class="green">"SwiftUI"</span>, <span class="green">"UIKit"</span>]<br />&nbsp;&nbsp;<span class="purple">func</span> <span class="blue">ship</span>() async throws {<br />&nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">await</span> buildQuality()<br />&nbsp;&nbsp;}<br />}</div><div class="layers"><div class="card layer"><strong>Experience Layer</strong><span>SwiftUI · UIKit · Accessibility</span></div><div class="card layer"><strong>Domain Layer</strong><span>MVVM · VIPER · Clean Swift</span></div><div class="card layer"><strong>Data Layer</strong><span>Combine · Core Data · REST</span></div><div class="card layer"><strong>Delivery Layer</strong><span>SPM · Fastlane · CI/CD</span></div></div></div>
+        </section>
+
+        <section id="experience">
+          <div class="section-head"><div><div class="kicker">Career timeline</div><h2>A decade<br />of impact</h2></div><div class="section-icon">✦</div></div>
+          <div class="timeline"><article class="card job"><time>2021 — Present</time><div><h3>Senior iOS Engineer</h3><div class="company">Simpplr Technologies</div><p>Enterprise apps, SwiftUI/UIKit experiences, reusable modules, hybrid web/native features, architecture, releases, and performance.</p></div></article><article class="card job"><time>2019 — 2021</time><div><h3>Senior iOS Developer</h3><div class="company">AgileAxis</div><p>Analytics SDK lifecycle events, telemetry, networking, and policy-driven mobile security controls.</p></div></article><article class="card job"><time>2015 — 2019</time><div><h3>Senior iOS Developer</h3><div class="company">Ranosys Technologies</div><p>International commerce apps, payment integrations, architecture, automated delivery, code reviews, and mentoring.</p></div></article></div>
+        </section>
+
+        <section>
+          <div class="section-head"><div><div class="kicker">Continuous learning</div><h2>Credentials that<br />keep moving forward.</h2></div><div class="section-icon">↗</div></div>
+          <div class="grid credentials"><a class="card credential" href="https://academy.claude.com/verify/431ab106e357b0ad7b79ebfa57556d11" target="_blank" rel="noreferrer"><div class="project-type">Claude Academy</div><h3>Claude 101 Badge ↗</h3><p>Verified credential for foundational Claude knowledge and practical AI collaboration.</p><div class="tag-row"><span class="tag">Verified badge</span><span class="tag">View credential</span></div></a><a class="card credential" href="https://academy.claude.com/verify/17357d56604a2249dbd5a62a40373b2b" target="_blank" rel="noreferrer"><div class="project-type">Claude Academy</div><h3>Claude Code Badge ↗</h3><p>Verified credential for using Claude Code to support software development workflows.</p><div class="tag-row"><span class="tag">Verified badge</span><span class="tag">View credential</span></div></a></div>
+        </section>
+
+        <section id="contact" class="contact"><div class="section-icon">⌁</div><h2>Engineering for<br />every screen.</h2><div class="contact-links"><span>⌖ Banswara, Rajasthan</span><a href="tel:+919462941446">☎ +91 94629 41446</a><a href="mailto:krishnapanchal173@gmail.com">✉ krishnapanchal173@gmail.com</a></div></section>
+      </main>
+      <footer><div class="container">© 2024 Rahul Panchal · Senior iOS Engineer</div></footer>
+    </div>
+  </body>
+</html>
